@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Music Pro</title>
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+
+<header>
+  <h1>My Music Pro</h1>
+</header>
+
+<section class="controls">
+  <input type="file" id="fileInput" accept="audio/*" multiple>
+  <input type="text" id="searchInput" placeholder="Поиск треков...">
+  <button id="favoritesBtn">Любимые</button>
+</section>
+
+<section class="playlists">
+  <button onclick="showAll()">Все треки</button>
+  <button onclick="showPlaylist('Rock')">Rock</button>
+  <button onclick="showPlaylist('Pop')">Pop</button>
+</section>
+
+<section class="track-list" id="trackList"></section>
+
+<section class="player" id="player">
+  <img id="cover" src="https://via.placeholder.com/100" alt="Обложка">
+  <div class="player-info">
+    <div id="title">Выберите трек</div>
+    <div class="controls">
+      <button onclick="prev()">⏮</button>
+      <button onclick="toggle()">▶ / ⏸</button>
+      <button onclick="next()">⏭</button>
+    </div>
+    <input type="range" id="progress" value="0">
+  </div>
+</section>
+
+<audio id="audio"></audio>
+<script src="script.js"></script>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js');
+}
+</script>
+
+</body>
+</html>
