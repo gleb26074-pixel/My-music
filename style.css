@@ -1,0 +1,106 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ff3d00, #ff9800);
+  color: #fff;
+}
+
+header {
+  text-align: center;
+  padding: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  background: rgba(0,0,0,0.5);
+}
+
+.controls input[type="text"] {
+  flex: 1;
+  margin: 0 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+}
+
+.playlists {
+  display: flex;
+  justify-content: space-around;
+  background: rgba(0,0,0,0.3);
+  padding: 5px 0;
+}
+
+.track-list {
+  padding: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.track {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  margin-bottom: 5px;
+  background: rgba(0,0,0,0.2);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.track:hover {
+  transform: scale(1.02);
+}
+
+.track.favorite {
+  border-left: 4px solid #ffeb3b;
+}
+
+.player {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  padding: 10px;
+  align-items: center;
+}
+
+.player img {
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
+  margin-right: 10px;
+  animation: rotateCover 20s linear infinite;
+  animation-play-state: paused;
+}
+
+.player img.playing {
+  animation-play-state: running;
+}
+
+@keyframes rotateCover {
+  from { transform: rotate(0deg);}
+  to { transform: rotate(360deg);}
+}
+
+.player-info {
+  flex: 1;
+}
+
+.player-info .controls button {
+  font-size: 22px;
+  margin-right: 5px;
+  background: none;
+  border: none;
+  color: white;
+}
+
+#progress {
+  width: 100%;
+  margin-top: 5px;
+}
